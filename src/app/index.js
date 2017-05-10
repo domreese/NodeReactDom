@@ -1,2 +1,4 @@
+import 'jquery';
+
 console.log("It works!");
-document.getElementById("genesis").innerHTML = "WE LIVE BABY!";
+$('#genesis').text("WE LIVE BABY!!");
