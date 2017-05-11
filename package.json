@@ -4,7 +4,7 @@
   "description": "First ReactJs, NodeJs project",
   "main": "index.js",
   "scripts": {
-    "start": "npm run build",
+    "start": "npm run dev",
     "build": "webpack",
     "dev": "webpack && webpack-dev-server",
     "build:prod": "webpack -p"

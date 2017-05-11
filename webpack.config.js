@@ -5,7 +5,7 @@ const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const bootstrapEntryPoints = require('./webpack.bootstrap.config');
 
 //Dev mode bootstrap
-const BootstrapConfig = bootstrapEntryPoints.dev;
+const BootstrapConfig = bootstrapEntryPoints.prod;
 
 const DIST_DIR = path.resolve(__dirname, "dist");
 const SRC_DIR = path.resolve(__dirname, "src");
@@ -37,7 +37,13 @@ module.exports = {
             },
             {
                 test: /\.scss$/, 
-                use: ['style-loader','css-loader?sourceMap','sass-loader']
+                use: ExtractTextPlugin.extract({fallback: 'style-loader',
+                    use:['css-loader', 'saas-loader']})
+                //use: ['style-loader','css-loader?sourceMap','sass-loader']
+            },
+            {
+                test: /\.css$/,
+                use: ExtractTextPlugin.extract({fallback: "style-loader", use: "css-loader"})
             },
             {
                 test: /bootstrap-sass[\/\\]assets[\/\\]javascripts[\/\\]/,
@@ -45,11 +51,11 @@ module.exports = {
             },
             {
                 test: /\.(woff2?|svg)$/,
-                loader: 'url-loader?limit=10000'
+                loader: 'url-loader?limit=10000&name=fonts/[name].[ext]'
             },
              {
                 test: /\.(ttf|eot)$/,
-                loader: 'url-loader?limit=10000'
+                loader: 'file-loader?name=fonts/[name].[ext]'
             }
         ]
     },
@@ -66,7 +72,7 @@ module.exports = {
         template: SRC_DIR + "/index.html"
     }),
     new ExtractTextPlugin({
-            filename: '/css/[name].css',
+            filename: 'css/[name].css',
             allChunks: true
         }),
         new webpack.HotModuleReplacementPlugin(),
