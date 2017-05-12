@@ -7,6 +7,10 @@ import { Home } from "./components/Home";
 
 class App extends React.Component {
     render() {
+        let user = {
+            name: "Dom",
+            skills: ["C#", ".NET", "Nodejs", "Javascript","CSS", "HTML5"]
+        };
         return (
             <div className="container">
                 <div className="row">
@@ -16,7 +20,7 @@ class App extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home />
+                        <Home name = {"Dom"} age = {22} userObj = {user} />
                     </div>
                 </div>
             </div>
