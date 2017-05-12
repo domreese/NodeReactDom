@@ -26,5 +26,6 @@ export class Home extends React.Component {
 Home.propTypes = {
     name: React.PropTypes.string,
     age: React.PropTypes.number,
-    userObj: React.PropTypes.object
+    userObj: React.PropTypes.object,
+    children: React.PropTypes.element.isRequired
 };
