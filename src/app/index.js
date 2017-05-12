@@ -20,7 +20,9 @@ class App extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home name = {"Dom"} age = {22} userObj = {user} />
+                        <Home name = {"Dom"} age = {22} userObj = {user}>
+                            <b>This is a child paragraph, accessed using "props.children"</b>
+                        </Home>
                     </div>
                 </div>
             </div>

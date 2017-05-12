@@ -16,6 +16,8 @@ export class Home extends React.Component {
                         {this.props.userObj.skills.map((skill,index) => <li key={index}>{skill}</li> )}
                     </ul>
                 </div>
+                <hr/>
+                {this.props.children}
             </div>
         );
     }
