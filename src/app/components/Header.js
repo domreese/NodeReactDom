@@ -1,6 +1,6 @@
 import React from "react";
 //Gets passed props
-export const Header = () =>{
+export const Header = (props) =>{
     return (
             <nav className="navbar navbar-default">
                 <div className="container-fluid">
@@ -19,7 +19,7 @@ export const Header = () =>{
                                 <a href="#">Link <span className="sr-only">(current)</span></a>
                             </li>
                             <li><a href="#">Link</a></li>
-                            <li><a href="#">Home</a></li>
+                            <li><a href="#">{props.homeLink}</a></li>
                         </ul>
                         <form action="" className="navbar-form navbar-left">
                             <div className="form-group">

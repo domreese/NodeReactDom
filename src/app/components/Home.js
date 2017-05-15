@@ -40,7 +40,9 @@ export class Home extends React.Component {
                 {this.props.children}
                 <hr/>
                 <button onClick={this.onMakeOlder.bind(this)} className= " btn btn-primary ">Make me older</button>
-                {/*Could have also used () => {this.onMakeOlder()}*/}
+                <hr/>
+                <button onClick={ ()=>{this.props.greet();} } className= " btn btn-primary ">Greet</button>
+                {/*Could have also used () => {this.onMakeOlder();}*/}
             </div>
         );
     }
@@ -50,5 +52,6 @@ Home.propTypes = {
     name: React.PropTypes.string,
     age: React.PropTypes.number,
     userObj: React.PropTypes.object,
-    children: React.PropTypes.element.isRequired
+    children: React.PropTypes.element.isRequired,
+    greet: React.PropTypes.func
 };
