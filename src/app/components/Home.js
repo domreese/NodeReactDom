@@ -21,7 +21,7 @@ export class Home extends React.Component {
 
     updateLinkText(e){
         this.setState({
-            linkText: e.target.value
+            linkText: e.target.value.toUpperCase()
         });
     }
 
@@ -74,5 +74,6 @@ Home.propTypes = {
     age: React.PropTypes.number,
     userObj: React.PropTypes.object,
     children: React.PropTypes.element.isRequired,
-    greet: React.PropTypes.func
+    greet: React.PropTypes.func,
+    changeLinkText: React.PropTypes.func
 };
