@@ -47,7 +47,7 @@ class App extends React.Component {
             skills: ["C#", ".NET", "Nodejs", "Javascript","CSS", "HTML5"]
         };
         
-        let homeCmp = "";
+        let homeCmp = null;
 
         if(this.state.homeMounted){
             homeCmp = 
