@@ -17,9 +17,12 @@ class App extends React.Component {
         alert("Hello");
     }
 
-    // onChangeLinkName(newName){
-
-    // }
+    onChangeLinkName(newName){
+        this.setState({
+            homeLink : newName
+        });
+    }
+    
     render() {
         let user = {
             name: "Dom",
@@ -34,7 +37,7 @@ class App extends React.Component {
                 </div>
                 <div className="row">
                     <div className="col-xs-10 col-xs-offset-1">
-                        <Home name = {"Dom"} age = {22} userObj = {user} greet={this.onGreet} changeLinkText ={this.onChangeLinkName}>
+                        <Home name = {"Dom"} age = {22} userObj = {user} greet={this.onGreet} changeLinkText ={this.onChangeLinkName.bind(this)}>
                             <b>This is a child paragraph, accessed using "props.children"</b>
                         </Home>
                     </div>

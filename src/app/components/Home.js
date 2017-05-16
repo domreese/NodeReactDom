@@ -6,7 +6,8 @@ export class Home extends React.Component {
         this.state = {
             //initial age
             age: props.age,
-            status: 0
+            status: 0,
+            linkText: ""
         };
     }
 
@@ -15,9 +16,21 @@ export class Home extends React.Component {
             {
                 age: this.state.age + 1
             }
-        );
-        // this.age +=1;
-        // console.log(this.age);
+        ); 
+    }
+
+    updateLinkText(e){
+        this.setState({
+            linkText: e.target.value
+        });
+    }
+
+    processBtnClick(){
+        if(this.state.linkText === "" || this.state.linkText === null)
+            return false;
+        this.props.changeLinkText(this.state.linkText);
+        document.getElementById("newLinkText").value = "";
+        this.setState({linkText:""});
     }
 
     render() {
@@ -43,6 +56,14 @@ export class Home extends React.Component {
                 <hr/>
                 <button onClick={ ()=>{this.props.greet();} } className= " btn btn-primary ">Greet</button>
                 {/*Could have also used () => {this.onMakeOlder();}*/}
+                <hr/>
+                <p>Link Text preview:</p>
+                <label>{this.state.linkText} </label>
+                <div className="form-group">
+                    <label htmlFor="newLinkText">Link Text:</label>
+                    <input onChange={this.updateLinkText.bind(this)} className="form-control" id="newLinkText" placeholder="New Link Text"/>
+                </div>
+                <button onClick= {this.processBtnClick.bind(this)} className="btn btn-default">Change Link Text</button>
             </div>
         );
     }
