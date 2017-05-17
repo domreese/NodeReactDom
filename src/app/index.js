@@ -1,11 +1,12 @@
 import 'jquery';
 import React from 'react';
-import { render} from 'react-dom';
+import {render} from 'react-dom';
+import {BrowserRouter as Router} from 'react-router-dom';
+import {Main} from "./components/Main";
+// import { Header } from "./components/Header";
+// import { Home } from "./components/Home";
 
-import { Header } from "./components/Header";
-import { Home } from "./components/Home";
-
-class App extends React.Component {
+/*class App extends React.Component {
     constructor(){
         super();
         this.state ={
@@ -70,8 +71,17 @@ class App extends React.Component {
                 <div className="row">
                     {homeCmp}                   
                 </div>
+                <Switch>
+                     <Route exact path='/' component={Home}/>
+                     <Route path='/roster' component={Home}/>
+                     <Route path='/schedule' component={Home}/>
+                </Switch>
             </div>
         );
     }
-}
-render(<App />,window.document.getElementById("app"));
+}*/
+render((
+    <Router>
+        <Main/>
+    </Router>
+),window.document.getElementById("app"));

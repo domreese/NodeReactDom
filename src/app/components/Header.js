@@ -1,4 +1,7 @@
 import React from "react";
+import {
+    Link
+}   from 'react-router-dom';
 //Gets passed props
 export const Header = (props) =>{
     return (
@@ -16,10 +19,13 @@ export const Header = (props) =>{
                     <div id="bs-example-navbar-collapse-1" className="collapse navbar-collapse">
                         <ul className="nav navbar-nav">
                             <li className="">
-                                <a href="#">PROFILE <span className="sr-only">(current)</span></a>
+                                <Link to ="/">HOME</Link>
+                                {/*<a href="#">HOME <span className="sr-only">(current)</span></a>*/}
                             </li>
-                            <li><a href="#">ABOUT ME</a></li>
-                            <li><a href="#">{props.homeLink}</a></li>
+                            <li><Link to = "/about">ABOUT ME</Link></li>
+                            {/*<li><a href="#">ABOUT ME</a></li>*/}
+                            {/*<li><a href="#">{props.homeLink}</a></li>*/}
+                            <li><Link to = "/profile">PROFILE</Link></li>
                         </ul>
                         <form action="" className="navbar-form navbar-left">
                             <div className="form-group">
