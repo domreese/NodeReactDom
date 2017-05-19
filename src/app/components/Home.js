@@ -17,9 +17,14 @@ export class Home extends React.Component {
 
     handlePost (e){
         e.preventDefault();
-        if(this.state.value === "" || this.state.value === null)return false;
         let name = document.getElementById("userName").value;
         let cDate = document.getElementById("commentDate").value;
+
+        if(this.state.value === "" || this.state.value === null
+            || name === "" || name === null
+            || cDate === "" || cDate === null)
+            return false;
+            
         this.setState({userComments:[...this.state.userComments,
             {
                 Username: name ,
