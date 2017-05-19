@@ -17,6 +17,7 @@ export class Home extends React.Component {
 
     handlePost (e){
         e.preventDefault();
+        if(this.state.value === "" || this.state.value === null)return false;
         let name = document.getElementById("userName").value;
         let cDate = document.getElementById("commentDate").value;
         this.setState({userComments:[...this.state.userComments,
@@ -64,11 +65,15 @@ export class Home extends React.Component {
                </form>
                <hr/>
                <div className="col-lg-6">
-                   <h3>Comments:</h3>
+                   {/*<h3>Comments:</h3>
                    <div style={{position:"relative",  borderTop:"2px solid yellow"}}>
                        {this.state.userComments.map((obj, i)=> <Comment key={i} comment = {obj}/>)}
+                    </div>*/}
+                    <h3>Comments:</h3>
+                    <div className="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                        {this.state.userComments.map((obj, i)=> <Comment key={i} id={i} comment = {obj}/>)}
                     </div>
-               </div>
+                </div>
            </div>
         );
     }
